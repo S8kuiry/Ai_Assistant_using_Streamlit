@@ -120,12 +120,15 @@ def commands(query):
     speak(response)
 
 # ------------------ Voice Trigger Button ------------------
-if sr and st.button("🎤 Start Microphone", use_container_width=True):
-    st.session_state.trigger_mic = True
+if sr:
+    if st.button("🎤 Start Microphone", use_container_width=True):
+        st.session_state.trigger_mic = True
 
-if st.session_state.trigger_mic:
-    mic()
-    st.session_state.trigger_mic = False
+    if st.session_state.trigger_mic:
+        mic()
+        st.session_state.trigger_mic = False
+else:
+    st.warning("🎙️ Voice input not available. Install 'speech_recognition' to enable microphone support.")
 
 # ------------------ Query Form ------------------
 with st.form(key="form"):
@@ -155,8 +158,8 @@ with st.sidebar:
             <h1 style='text-align: center; margin: 0;'>⏳ Welcome, User!</h1>
         </div>
     """, unsafe_allow_html=True)
-    st.markdown(f"<h1 style='text-align:center;font-size:25px;'>📅 {current_date}</h1>", unsafe_allow_html=True)
-    st.markdown(f"<h1 style='text-align:center;margin-bottom:20px;font-size:25px;'>⏰ {current_time}</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align:left;font-size:25px;'>📅 {current_date}</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align:left;margin-bottom:20px;font-size:25px;'>⏰ {current_time}</h1>", unsafe_allow_html=True)
 
     weather_city = st.text_input("Enter City : ", value=st.session_state.weather or "Kolkata")
     st.session_state.weather = weather_city
