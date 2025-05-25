@@ -15,3 +15,10 @@ A voice-enabled AI assistant built with Streamlit, integrating speech recognitio
 1. Clone the repository:git clone https://github.com/S8kuiry/Ai_Assistant_using_Streamlit.git
 2. Install dependencies:
 3.  Run the app:streamlit run app.py
+
+4.  
+## 🚀 Live Demo
+
+👉 Try it out here: [AI Assistant App](https://s8kuiry-ai-assistant-using-streamlit-app-vojrqr.streamlit.app/)
+
+---
